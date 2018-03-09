@@ -1,4 +1,4 @@
-{% set version = '0.9.4.4' %}
+{% set version = "0.9.4.6" %}
 
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
@@ -14,7 +14,7 @@ source:
     - https://cran.r-project.org/src/contrib/Archive/stringdist/stringdist_{{ version }}.tar.gz
 
 
-  sha256: 97d88229255f87e2ebd4dfbfaea025f13b0d203b171e45dd9413cf6023cccfe2
+  sha256: 91c1ddee426ee246f92dd12ae746ea114e123fbfb32a4708ee29db51323cab48
 
 build:
   number: 0
