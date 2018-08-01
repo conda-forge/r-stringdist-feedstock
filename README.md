@@ -14,14 +14,16 @@ Summary: Implements an approximate string matching version of R's native 'match'
 Current build status
 ====================
 
-Linux: [![Circle CI](https://circleci.com/gh/conda-forge/r-stringdist-feedstock.svg?style=shield)](https://circleci.com/gh/conda-forge/r-stringdist-feedstock)
-OSX: [![TravisCI](https://travis-ci.org/conda-forge/r-stringdist-feedstock.svg?branch=master)](https://travis-ci.org/conda-forge/r-stringdist-feedstock)
-Windows: [![AppVeyor](https://ci.appveyor.com/api/projects/status/github/conda-forge/r-stringdist-feedstock?svg=True)](https://ci.appveyor.com/project/conda-forge/r-stringdist-feedstock/branch/master)
+[![Linux](https://img.shields.io/circleci/project/github/conda-forge/r-stringdist-feedstock/master.svg?label=Linux)](https://circleci.com/gh/conda-forge/r-stringdist-feedstock)
+[![OSX](https://img.shields.io/travis/conda-forge/r-stringdist-feedstock/master.svg?label=macOS)](https://travis-ci.org/conda-forge/r-stringdist-feedstock)
+[![Windows](https://img.shields.io/appveyor/ci/conda-forge/r-stringdist-feedstock/master.svg?label=Windows)](https://ci.appveyor.com/project/conda-forge/r-stringdist-feedstock/branch/master)
 
 Current release info
 ====================
-Version: [![Anaconda-Server Badge](https://anaconda.org/conda-forge/r-stringdist/badges/version.svg)](https://anaconda.org/conda-forge/r-stringdist)
-Downloads: [![Anaconda-Server Badge](https://anaconda.org/conda-forge/r-stringdist/badges/downloads.svg)](https://anaconda.org/conda-forge/r-stringdist)
+
+| Name | Downloads | Version | Platforms |
+| --- | --- | --- | --- |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-r--stringdist-green.svg)](https://anaconda.org/conda-forge/r-stringdist) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/r-stringdist.svg)](https://anaconda.org/conda-forge/r-stringdist) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/r-stringdist.svg)](https://anaconda.org/conda-forge/r-stringdist) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/r-stringdist.svg)](https://anaconda.org/conda-forge/r-stringdist) |
 
 Installing r-stringdist
 =======================
