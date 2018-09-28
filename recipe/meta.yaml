@@ -1,5 +1,4 @@
-{% set version = "0.9.4.6" %}
-
+{% set version = '0.9.5.1' %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -10,38 +9,37 @@ package:
 source:
   fn: stringdist_{{ version }}.tar.gz
   url:
-    - https://cran.r-project.org/src/contrib/stringdist_{{ version }}.tar.gz
-    - https://cran.r-project.org/src/contrib/Archive/stringdist/stringdist_{{ version }}.tar.gz
-
-
-  sha256: 91c1ddee426ee246f92dd12ae746ea114e123fbfb32a4708ee29db51323cab48
+    - {{ cran_mirror }}/src/contrib/stringdist_{{ version }}.tar.gz
+    - {{ cran_mirror }}/src/contrib/Archive/stringdist/stringdist_{{ version }}.tar.gz
+  sha256: aa8b6e3f25c820512ac224e73bc00728ee9b15136cdaaf71ffe042ded30b573d
 
 build:
   merge_build_host: True  # [win]
-  number: 1
-
+  number: 0
+  skip: true  # [win32]
   rpaths:
     - lib/R/lib/
     - lib/
-  skip: True  # [win32]
 
 requirements:
   build:
-    - posix                # [win]
-    - {{ compiler('c') }}        # [unix]
-    - {{ compiler('m2w64_c') }}  # [win]
+    - {{ compiler('c') }}        # [not win]
+    - {{native}}toolchain        # [win]
+    - {{posix}}filesystem        # [win]
+    - {{posix}}make
+    - {{posix}}sed               # [win]
+    - {{posix}}coreutils         # [win]
+    - {{posix}}zip               # [win]
   host:
     - r-base
-
   run:
     - r-base
+    - {{native}}gcc-libs         # [win]
 
 test:
   commands:
-    - $R -e "library('stringdist')"  # [not win]
+    - $R -e "library('stringdist')"           # [not win]
     - "\"%R%\" -e \"library('stringdist')\""  # [win]
-
-
 
 about:
   home: https://github.com/markvanderloo/stringdist
@@ -51,11 +49,19 @@ about:
     Levenshtein, optimal sting alignment), qgrams (q- gram, cosine, jaccard distance)
     or heuristic metrics (Jaro, Jaro-Winkler). An implementation of soundex is provided
     as well. Distances can be computed between character vectors while taking proper
-    care of encoding or between integer vectors representing generic sequences.
+    care of encoding or between integer vectors representing generic sequences. This
+    package is built for speed and runs in parallel by using 'openMP'. An API for C
+    or C++ is exposed as well.
   license_family: GPL3
-
-
+  license_file: '{{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-3'  # [unix]
+  license_file: '{{ environ["PREFIX"] }}\R\share\licenses\GPL-3'  # [win]
 
 extra:
   recipe-maintainers:
     - croth1
+    - johanneskoester
+    - bgruening
+    - daler
+    - jdblischak
+    - cbrueffer
+    - dbast
