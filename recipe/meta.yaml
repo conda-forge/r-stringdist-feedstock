@@ -30,11 +30,13 @@ requirements:
     - {{posix}}sed               # [win]
     - {{posix}}coreutils         # [win]
     - {{posix}}zip               # [win]
+    - llvm-openmp                # [osx]
   host:
     - r-base
   run:
     - r-base
     - {{native}}gcc-libs         # [win]
+    - llvm-openmp                # [osx]
 
 test:
   commands:
