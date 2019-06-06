@@ -1,4 +1,4 @@
-{% set version = '0.9.5.1' %}
+{% set version = '0.9.5.2' %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -7,16 +7,14 @@ package:
   version: {{ version|replace("-", "_") }}
 
 source:
-  fn: stringdist_{{ version }}.tar.gz
   url:
     - {{ cran_mirror }}/src/contrib/stringdist_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/stringdist/stringdist_{{ version }}.tar.gz
-  sha256: aa8b6e3f25c820512ac224e73bc00728ee9b15136cdaaf71ffe042ded30b573d
+  sha256: 7480f1d3ec6ee04b72593dbec50876ad09513a04345f90ef30d84d7cc260885b
 
 build:
   merge_build_host: True  # [win]
-  number: 1000
-  skip: true  # [win32]
+  number: 0
   rpaths:
     - lib/R/lib/
     - lib/
@@ -59,10 +57,28 @@ about:
 
 extra:
   recipe-maintainers:
+    - conda-forge/r
     - croth1
-    - johanneskoester
-    - bgruening
-    - daler
-    - jdblischak
-    - cbrueffer
-    - dbast
+
+# Package: stringdist
+# Maintainer: Mark van der Loo <mark.vanderloo@gmail.com>
+# License: GPL-3
+# Title: Approximate String Matching and String Distance Functions
+# LazyData: no
+# Type: Package
+# LazyLoad: yes
+# Authors@R: c( person("Mark", "van der Loo", role=c("aut","cre"),email="mark.vanderloo@gmail.com") , person("Jan", "van der Laan", role="ctb") , person("R Core Team",""     , role="ctb") , person("Nick","Logan"       , role="ctb") , person("Chris","Muir"       , role="ctb"))
+# Description: Implements an approximate string matching version of R's native 'match' function. Can calculate various string distances based on edits (Damerau-Levenshtein, Hamming, Levenshtein, optimal sting alignment), qgrams (q- gram, cosine, jaccard distance) or heuristic metrics (Jaro, Jaro-Winkler). An implementation of soundex is provided as well. Distances can be computed between character vectors while taking proper care of encoding or between integer vectors representing generic sequences. This package is built for speed and runs in parallel by using 'openMP'. An API for C or C++ is exposed as well.
+# Version: 0.9.5.2
+# Depends: R (>= 2.15.3)
+# URL: https://github.com/markvanderloo/stringdist
+# BugReports: https://github.com/markvanderloo/stringdist/issues
+# Suggests: tinytest
+# Imports: parallel
+# Encoding: UTF-8
+# RoxygenNote: 6.1.1
+# NeedsCompilation: yes
+# Packaged: 2019-06-05 22:50:08 UTC; mark
+# Author: Mark van der Loo [aut, cre], Jan van der Laan [ctb], R Core Team [ctb], Nick Logan [ctb], Chris Muir [ctb]
+# Repository: CRAN
+# Date/Publication: 2019-06-06 08:00:03 UTC
