@@ -1,4 +1,4 @@
-{% set version = "0.9.5.5" %}
+{% set version = "0.9.6" %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -10,11 +10,11 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/stringdist_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/stringdist/stringdist_{{ version }}.tar.gz
-  sha256: 11cf12f57052dde7872bdfa5b0598282627659c695c37a3a3ac8a94fd9540eb7
+  sha256: 8bbd762b51e03180a0c90892e34a2434fb9bd5e6d9056d73ec7d38422f8f6359
 
 build:
-  merge_build_host: True  # [win]
-  number: 1
+  merge_build_host: true  # [win]
+  number: 0
   rpaths:
     - lib/R/lib/
     - lib/
@@ -44,16 +44,10 @@ test:
 about:
   home: https://github.com/markvanderloo/stringdist
   license: GPL-3
-  summary: Implements an approximate string matching version of R's native 'match' function.
-    Can calculate various string distances based on edits (Damerau-Levenshtein, Hamming,
-    Levenshtein, optimal sting alignment), qgrams (q- gram, cosine, jaccard distance)
-    or heuristic metrics (Jaro, Jaro-Winkler). An implementation of soundex is provided
-    as well. Distances can be computed between character vectors while taking proper
-    care of encoding or between integer vectors representing generic sequences. This
-    package is built for speed and runs in parallel by using 'openMP'. An API for C
-    or C++ is exposed as well.
+  summary: Implements an approximate string matching version of R's native 'match' function. Can calculate various string distances based on edits (Damerau-Levenshtein, Hamming, Levenshtein, optimal sting alignment), qgrams (q- gram, cosine, jaccard distance) or heuristic metrics (Jaro, Jaro-Winkler). An implementation of
+    soundex is provided as well. Distances can be computed between character vectors while taking proper care of encoding or between integer vectors representing generic sequences. This package is built for speed and runs in parallel by using 'openMP'. An API for C or C++ is exposed as well.
   license_family: GPL3
-  license_file: '{{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-3'
+  license_file: {{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-3
 
 extra:
   recipe-maintainers:
