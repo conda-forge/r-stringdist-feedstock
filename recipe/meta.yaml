@@ -1,4 +1,4 @@
-{% set version = "0.9.12" %}
+{% set version = "0.9.14" %}
 {% set posix = 'm2-' if win else '' %}
 
 package:
@@ -9,10 +9,10 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/stringdist_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/stringdist/stringdist_{{ version }}.tar.gz
-  sha256: e1843452ff4184b8d3bc5168732c0c65d3fce11f0df9fcf92173a22ef92e66c4
+  sha256: 0468db427a88de5e40004d5c07a76a1a9e591d3442296ecf48016d9779e8d9d4
 
 build:
-  number: 2
+  number: 0
   rpaths:
     - lib/R/lib/
     - lib/
